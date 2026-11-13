@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DocCare Clinic | Book Appointment Online</title>
+<meta name="description" content="Trusted family clinic. Book your appointment online in 30 seconds.">
+<style>
+:root{--p:#0e7c86;--pd:#095c63;--bg:#f5fafb;--t:#16323a;--m:#5d7880;--w:#fff;--a:#ffb703}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--t);background:var(--bg);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;background:var(--w);box-shadow:0 2px 12px rgba(0,0,0,.06);z-index:50}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:22px;color:var(--p)}
+.logo span{color:var(--a)}
+nav a{margin-left:22px;font-size:15px;color:var(--m);font-weight:500}
+nav a:hover{color:var(--p)}
+.btn{display:inline-block;background:var(--p);color:#fff;padding:12px 24px;border-radius:10px;font-weight:600;border:0;cursor:pointer;font-size:16px;transition:.2s}
+.btn:hover{background:var(--pd);transform:translateY(-1px)}
+.btn.alt{background:#fff;color:var(--p);border:2px solid var(--p)}
+.hero{padding:70px 0;background:linear-gradient(135deg,#e3f6f7,#f5fafb)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.tag{display:inline-block;background:#d6f0f2;color:var(--pd);padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:16px}
+h1{font-size:44px;line-height:1.15;margin-bottom:16px}
+h1 span{color:var(--p)}
+.hero p{color:var(--m);font-size:18px;margin-bottom:26px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.doc-card{background:var(--w);border-radius:22px;padding:30px;text-align:center;box-shadow:0 20px 50px rgba(14,124,134,.15)}
+.avatar{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,var(--p),#4cc3cb);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:60px}
+.doc-card h3{font-size:22px}
+.doc-card small{color:var(--m)}
+.stats{display:flex;justify-content:space-around;margin-top:20px;padding-top:18px;border-top:1px solid #e6eef0}
+.stats b{display:block;font-size:22px;color:var(--p)}
+.stats span{font-size:12px;color:var(--m)}
+section{padding:70px 0}
+.title{text-align:center;margin-bottom:40px}
+.title h2{font-size:34px}
+.title p{color:var(--m)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.card{background:var(--w);padding:28px;border-radius:16px;box-shadow:0 6px 24px rgba(0,0,0,.05);transition:.25s}
+.card:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(14,124,134,.15)}
+.ic{font-size:34px;margin-bottom:10px}
+.card h3{margin-bottom:6px}
+.card p{color:var(--m);font-size:15px}
+.why{background:var(--w)}
+.why .item{display:flex;gap:14px;align-items:flex-start}
+.why .num{background:var(--p);color:#fff;min-width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700}
+.stars{color:var(--a);letter-spacing:2px}
+.rev p{font-style:italic;margin:8px 0}
+.rev b{font-size:14px}
+.book{background:linear-gradient(135deg,var(--p),var(--pd));color:#fff}
+.book .title p{color:#cdeff1}
+form{background:var(--w);color:var(--t);max-width:640px;margin:0 auto;padding:30px;border-radius:18px;display:grid;gap:14px;box-shadow:0 20px 50px rgba(0,0,0,.2)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+input,select,textarea{width:100%;padding:13px 14px;border:1.5px solid #dbe6e8;border-radius:10px;font-size:15px;font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--p)}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.gal div{height:160px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:44px;background:linear-gradient(135deg,#d6f0f2,#a9dfe3)}
+.contact .grid{align-items:stretch}
+.map{background:#d6f0f2;border-radius:16px;display:flex;align-items:center;justify-content:center;min-height:220px;color:var(--pd);font-weight:600;text-align:center;padding:20px}
+footer{background:#0b2a30;color:#9fc0c5;text-align:center;padding:26px 0;font-size:14px}
+.wa{position:fixed;right:18px;bottom:18px;background:#25d366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;box-shadow:0 8px 20px rgba(0,0,0,.25);z-index:60}
+.call{position:fixed;left:18px;bottom:18px;background:var(--p);color:#fff;padding:14px 20px;border-radius:30px;font-weight:600;z-index:60;box-shadow:0 8px 20px rgba(0,0,0,.25);display:none}
+@media(max-width:760px){
+ nav{display:none}
+ .hero .wrap{grid-template-columns:1fr}
+ h1{font-size:32px}
+ .row{grid-template-columns:1fr}
+ .call{display:block}
+ section{padding:50px 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="wrap nav">
+  <a class="logo" href="#">Doc<span>Care</span></a>
+  <nav>
+   <a href="#services">Services</a>
+   <a href="#about">About</a>
+   <a href="#reviews">Reviews</a>
+   <a href="#contact">Contact</a>
+  </nav>
+  <a class="btn" href="#book">Book Now</a>
+ </div>
+</header>
+
+<div class="hero">
+ <div class="wrap">
+  <div>
+   <span class="tag">Trusted by 5,000+ patients</span>
+   <h1>Caring for your family, <span>every step</span> of the way</h1>
+   <p>Experienced doctors, modern treatment and a clinic that feels like home. Book your appointment online in 30 seconds.</p>
+   <div class="cta">
+    <a class="btn" href="#book">Book Appointment</a>
+    <a class="btn alt" href="tel:+910000000000">Call Now</a>
+   </div>
+  </div>
+  <div class="doc-card" id="about">
+   <div class="avatar">&#129657;</div>
+   <h3>Dr. Aarav Sharma</h3>
+   <small>MBBS, MD (General Medicine)</small>
+   <div class="stats">
+    <div><b>12+</b><span>Years</span></div>
+    <div><b>5K+</b><span>Patients</span></div>
+    <div><b>4.9</b><span>Rating</span></div>
+   </div>
+  </div>
+ </div>
+</div>
+
+<section id="services">
+ <div class="wrap">
+  <div class="title"><h2>Our Services</h2><p>Complete care under one roof</p></div>
+  <div class="grid">
+   <div class="card"><div class="ic">&#129658;</div><h3>General Checkup</h3><p>Full health examination and consultation.</p></div>
+   <div class="card"><div class="ic">&#129466;</div><h3>Dental Care</h3><p>Cleaning, fillings and smile makeovers.</p></div>
+   <div class="card"><div class="ic">&#129728;</div><h3>Heart Health</h3><p>ECG, BP monitoring and heart screening.</p></div>
+   <div class="card"><div class="ic">&#129514;</div><h3>Lab Tests</h3><p>Blood tests with quick digital reports.</p></div>
+   <div class="card"><div class="ic">&#128118;</div><h3>Child Care</h3><p>Vaccinations and growth monitoring.</p></div>
+   <div class="card"><div class="ic">&#128138;</div><h3>Diabetes Care</h3><p>Sugar control plans and diet guidance.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="why">
+ <div class="wrap">
+  <div class="title"><h2>Why Choose Us</h2></div>
+  <div class="grid">
+   <div class="item"><div class="num">1</div><div><h3>Experienced Doctors</h3><p>Years of practice and thousands of happy patients.</p></div></div>
+   <div class="item"><div class="num">2</div><div><h3>No Long Waiting</h3><p>Book a slot online and walk in on time.</p></div></div>
+   <div class="item"><div class="num">3</div><div><h3>Affordable Fees</h3><p>Clear pricing with no hidden charges.</p></div></div>
+   <div class="item"><div class="num">4</div><div><h3>Clean and Safe</h3><p>Hygienic clinic following strict safety standards.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<section id="reviews">
+ <div class="wrap">
+  <div class="title"><h2>Patient Reviews</h2></div>
+  <div class="grid">
+   <div class="card rev"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Very caring doctor. Explained everything clearly and the booking was super easy."</p><b>Riya M.</b></div>
+   <div class="card rev"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"No waiting time and clean clinic. My whole family comes here now."</p><b>Karan S.</b></div>
+   <div class="card rev"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Best treatment for my child. Friendly staff and fair pricing."</p><b>Neha P.</b></div>
+  </div>
+ </div>
+</section>
+
+<section class="book" id="book">
+ <div class="wrap">
+  <div class="title"><h2>Book an Appointment</h2><p>Fill the form and we will confirm on WhatsApp</p></div>
+  <form id="bf">
+   <div class="row">
+    <input id="n" placeholder="Your name" required>
+    <input id="p" type="tel" placeholder="Phone number" required>
+   </div>
+   <div class="row">
+    <input id="d" type="date" required>
+    <select id="t">
+     <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
+     <option>04:00 PM</option><option>05:00 PM</option><option>06:00 PM</option>
+    </select>
+   </div>
+   <select id="s">
+    <option>General Checkup</option><option>Dental Care</option><option>Heart Health</option>
+    <option>Lab Tests</option><option>Child Care</option><option>Diabetes Care</option>
+   </select>
+   <textarea id="m" rows="3" placeholder="Describe your problem (optional)"></textarea>
+   <button class="btn" type="submit">Confirm on WhatsApp</button>
+  </form>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <div class="title"><h2>Our Clinic</h2></div>
+  <div class="gal"><div>&#127973;</div><div>&#129657;</div><div>&#128138;</div><div>&#129658;</div></div>
+ </div>
+</section>
+
+<section class="contact" id="contact">
+ <div class="wrap">
+  <div class="title"><h2>Visit Us</h2></div>
+  <div class="grid">
+   <div class="card">
+    <h3>DocCare Clinic</h3>
+    <p>123 Main Road, Your City, 000000</p><br>
+    <p><b>Mon to Sat:</b> 10 AM to 1 PM, 4 PM to 8 PM<br><b>Sunday:</b> Closed</p><br>
+    <p><b>Phone:</b> +91 00000 00000</p>
+   </div>
+   <div class="map">Add your Google Map embed here</div>
+  </div>
+ </div>
+</section>
+
+<footer>&copy; 2026 DocCare Clinic. All rights reserved.</footer>
+
+<a class="wa" href="https://wa.me/910000000000" aria-label="WhatsApp">&#128172;</a>
+<a class="call" href="tel:+910000000000">Call Now</a>
+
+<script>
+// CHANGE THIS to the clinic WhatsApp number (country code + number, no + or spaces)
+var WA_NUMBER = "910000000000";
+document.getElementById("d").min = new Date().toISOString().split("T")[0];
+document.getElementById("bf").addEventListener("submit", function(e){
+  e.preventDefault();
+  var msg = "New Appointment Request%0AName: " + encodeURIComponent(n.value) +
+    "%0APhone: " + encodeURIComponent(p.value) +
+    "%0ADate: " + d.value + "%0ATime: " + encodeURIComponent(t.value) +
+    "%0AService: " + encodeURIComponent(s.value) +
+    "%0AProblem: " + encodeURIComponent(m.value || "N/A");
+  window.open("https://wa.me/" + WA_NUMBER + "?text=" + msg, "_blank");
+});
+</script>
+</body>
+</html>
