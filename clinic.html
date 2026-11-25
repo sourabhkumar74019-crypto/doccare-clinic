@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DocCare Clinic | Book Appointment Online</title>
+<meta name="description" content="Family clinic with experienced doctors. Book your appointment online in 30 seconds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#0b6b73;--teal2:#084f56;--mint:#e5f3f1;--mint2:#f2f9f8;--ink:#12302f;--mute:#566d6c;--coral:#ef7b5b;--w:#fff;--line:#d9e8e6}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--mint2);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3.f{font-family:Fraunces,Georgia,serif;font-weight:600;letter-spacing:-.01em}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.12em}
+.ph{position:relative;overflow:hidden;background:linear-gradient(150deg,#cfe8e5,#9fcdc8);background-size:cover;background-position:center}
+.ph::after{content:"Add photo\A " attr(data-src);white-space:pre;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-size:11px;font-weight:600;color:#2f6a69;opacity:.7;padding:10px}
+.ph.on::after{display:none}
+
+.top{background:var(--teal2);color:#d6efec;font-size:13px}
+.top .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;color:var(--teal)}
+.logo .m{width:36px;height:36px;border-radius:10px;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:20px}
+.logo em{font-style:normal;color:var(--coral)}
+nav{display:flex;gap:28px}
+nav a{font-size:14.5px;font-weight:600;color:var(--mute)}
+nav a:hover{color:var(--teal)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--teal);color:#fff;padding:13px 24px;border-radius:12px;font-weight:700;font-size:15px;border:0;cursor:pointer;font-family:inherit;transition:.2s}
+.btn:hover{background:var(--teal2);transform:translateY(-1px)}
+.btn.o{background:#fff;color:var(--teal);border:1.5px solid var(--teal)}
+.btn.o:hover{background:var(--mint)}
+.btn.c{background:var(--coral)}
+.btn.c:hover{background:#d96a4b}
+.btn.sm{padding:10px 18px;font-size:14px}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:40px;height:40px;font-size:20px;color:var(--teal);cursor:pointer}
+
+.hero{padding:56px 0 64px;background:linear-gradient(180deg,#e5f3f1,#f2f9f8)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.pill{display:inline-flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);color:var(--teal);padding:7px 14px;border-radius:30px;font-size:13px;font-weight:700;margin-bottom:18px}
+h1{font-size:clamp(34px,4.6vw,56px);line-height:1.08}
+h1 span{color:var(--teal)}
+.hero p.lead{margin:18px 0 26px;font-size:17.5px;color:var(--mute);max-width:46ch}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.facts{display:flex;gap:26px;margin-top:30px;flex-wrap:wrap}
+.facts b{display:block;font-family:Fraunces,serif;font-size:28px;color:var(--teal);line-height:1.1}
+.facts span{font-size:13px;color:var(--mute)}
+.hp{position:relative}
+.hp .ph{height:460px;border-radius:200px 200px 28px 28px;box-shadow:0 30px 60px rgba(8,79,86,.2)}
+.fl{position:absolute;background:#fff;border-radius:16px;padding:12px 16px;box-shadow:0 14px 30px rgba(8,79,86,.18);display:flex;gap:10px;align-items:center;font-size:13px}
+.fl .d{width:38px;height:38px;border-radius:50%;background:var(--mint);color:var(--teal);display:grid;place-items:center;font-size:18px}
+.fl b{display:block;font-size:14px;line-height:1.2}
+.fl small{color:var(--mute)}
+.f1{left:-18px;bottom:48px}
+.f2{right:-8px;top:40px}
+
+section{padding:72px 0}
+.title{text-align:center;margin-bottom:38px}
+.title h2{font-size:clamp(28px,3.2vw,38px)}
+.title p{color:var(--mute);margin-top:6px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.sv{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;transition:.25s}
+.sv:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(11,107,115,.14);border-color:var(--teal)}
+.sv .ic{width:50px;height:50px;border-radius:14px;background:var(--mint);color:var(--teal);display:grid;place-items:center;font-size:25px;margin-bottom:14px}
+.sv h3{font-size:17px;margin-bottom:4px}
+.sv p{font-size:14px;color:var(--mute)}
+
+.doc{background:#fff}
+.doc .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:52px;align-items:center}
+.doc .ph{height:420px;border-radius:24px}
+.doc h2{font-size:clamp(28px,3.2vw,38px);margin-bottom:6px}
+.quals{color:var(--teal);font-weight:700;margin-bottom:14px}
+.doc p{color:var(--mute);margin-bottom:14px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 22px}
+.tags span{background:var(--mint);color:var(--teal2);padding:6px 14px;border-radius:30px;font-size:13px;font-weight:600}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.st{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;position:relative}
+.st .n{width:40px;height:40px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:14px}
+.st h3{font-size:18px;margin-bottom:4px}
+.st p{color:var(--mute);font-size:14.5px}
+
+.why{background:var(--teal);color:#fff}
+.why .title p{color:#bfe3e0}
+.why .grid4 .w{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:24px}
+.why .w .ic{font-size:28px;color:#ffd7c9;margin-bottom:10px}
+.why .w h3{font-size:17px;margin-bottom:4px}
+.why .w p{font-size:14px;color:#cdeae7}
+
+.faq{max-width:760px;margin:0 auto;display:grid;gap:12px}
+details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";font-size:22px;line-height:1;color:var(--teal)}
+details[open] summary::after{content:"\2013"}
+details p{margin-top:10px;color:var(--mute);font-size:15px}
+
+.book{background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff}
+.book .wrap{display:grid;grid-template-columns:1fr 520px;gap:48px;align-items:center}
+.book h2{font-size:clamp(28px,3.4vw,40px)}
+.book .lead{color:#cdeae7;margin-top:10px;max-width:40ch}
+.book ul{list-style:none;margin-top:22px;display:grid;gap:12px}
+.book li{display:flex;gap:10px;align-items:center}
+.book li i{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;font-style:normal;font-size:13px}
+form{background:#fff;color:var(--ink);padding:28px;border-radius:22px;display:grid;gap:12px;box-shadow:0 26px 60px rgba(0,0,0,.25)}
+form h3{font-size:20px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+input,select,textarea{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;font-family:inherit;color:var(--ink);background:#fff}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--teal);outline-offset:1px}
+form .btn{width:100%;padding:15px}
+.note{font-size:12.5px;color:var(--mute);text-align:center}
+
+.cg{display:grid;grid-template-columns:1fr 1.2fr;gap:22px}
+.info{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;display:grid;gap:16px;align-content:start}
+.info div{display:flex;gap:12px}
+.info .ic{color:var(--teal);font-size:21px;margin-top:2px}
+.map{border-radius:20px;min-height:280px;background:var(--mint);display:grid;place-items:center;color:var(--teal2);font-weight:700;text-align:center;padding:20px}
+footer{background:#0a2a2d;color:#9ec3c1;text-align:center;padding:26px 0;font-size:14px}
+.wa{position:fixed;right:18px;bottom:18px;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:26px;box-shadow:0 8px 20px rgba(0,0,0,.25);z-index:60}
+.bar{display:none}
+
+@media(max-width:980px){
+ .hero .wrap,.doc .wrap,.book .wrap,.cg{grid-template-columns:1fr}
+ .grid4{grid-template-columns:repeat(2,1fr)}
+ .steps{grid-template-columns:1fr}
+ .hp .ph{height:360px}
+ .doc .ph{height:340px}
+}
+@media(max-width:760px){
+ .wrap{padding:0 16px}
+ .top .wrap{justify-content:center;text-align:center}
+ nav{display:none;position:absolute;left:0;right:0;top:70px;background:#fff;flex-direction:column;padding:16px;gap:14px;border-bottom:1px solid var(--line)}
+ nav.open{display:flex}
+ .burger{display:block}
+ .nav>.btn{display:none}
+ .hero{padding:30px 0 40px}
+ .f1{left:6px;bottom:20px}.f2{right:6px;top:16px}
+ .fl{padding:9px 12px}
+ section{padding:48px 0}
+ .row{grid-template-columns:1fr}
+ form{padding:22px}
+ .facts{gap:18px}
+ .wa{display:none}
+ .bar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px;gap:10px}
+ .bar a{padding:12px;border-radius:12px;text-align:center;font-weight:700;font-size:14px}
+ .bar .a{background:var(--teal);color:#fff}.bar .b{background:#25d366;color:#fff}
+ footer{padding-bottom:80px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="cross" viewBox="0 0 24 24"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/></symbol>
+<symbol id="steth" viewBox="0 0 24 24"><path d="M6 3v6a4 4 0 0 0 8 0V3M10 13v2a5 5 0 0 0 10 0v-1"/><circle cx="20" cy="12" r="2"/></symbol>
+<symbol id="tooth" viewBox="0 0 24 24"><path d="M7 3c-2.500 0-4 2-4 4.500 0 3 1.500 4 2 7 .4 2.500 1 6.500 2.500 6.500s1.500-4 3-4 1.500 4 3 4 2-4 2.500-6.500c.5-3 2-4 2-7C20 5 18.500 3 16 3c-1.500 0-2.500.8-4 .8S8.500 3 7 3z"/></symbol>
+<symbol id="heart" viewBox="0 0 24 24"><path d="M12 21s-7-4.600-9.300-9A5.200 5.200 0 0 1 12 6.500 5.200 5.200 0 0 1 21.300 12C19 16.400 12 21 12 21z"/></symbol>
+<symbol id="flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.800 3h10.400A2 2 0 0 0 19 18l-5-9V3M7.500 15h9"/></symbol>
+<symbol id="baby" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.500 10h.01M15.500 10h.01M8.500 14.500c1 1.500 2.200 2 3.500 2s2.500-.5 3.500-2M12 3c1-1 2.500-1 3 0"/></symbol>
+<symbol id="drop" viewBox="0 0 24 24"><path d="M12 3s6 6.500 6 11a6 6 0 0 1-12 0c0-4.500 6-11 6-11z"/></symbol>
+<symbol id="pulse" viewBox="0 0 24 24"><path d="M3 12h4l2-6 4 12 2-6h6"/></symbol>
+<symbol id="shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6z"/></symbol>
+<symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="rupee" viewBox="0 0 24 24"><path d="M7 5h10M7 9h10M7 5c5 0 7 1.500 7 4s-2 4-7 4l7 7"/></symbol>
+<symbol id="cal" viewBox="0 0 24 24"><rect x="3.500" y="5" width="17" height="15" rx="2"/><path d="M3.500 10h17M8 3v4M16 3v4"/></symbol>
+<symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.500"/></symbol>
+<symbol id="phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+<symbol id="chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+</defs></svg>
+
+<div class="top"><div class="wrap"><span>Mon to Sat: 10 AM to 1 PM, 4 PM to 8 PM</span><span>Call: +91 00000 00000</span></div></div>
+<header>
+ <div class="wrap nav">
+  <a class="logo" href="#"><span class="m"><svg class="i"><use href="#cross"/></svg></span><span>Doc<em>Care</em></span></a>
+  <nav id="nav"><a href="#services">Services</a><a href="#doctor">Doctor</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></nav>
+  <a class="btn sm" href="#book">Book Appointment</a>
+  <button class="burger" id="bg" aria-label="Menu">&#9776;</button>
+ </div>
+</header>
+
+<div class="hero">
+ <div class="wrap">
+  <div>
+   <span class="pill"><svg class="i"><use href="#shield"/></svg> Family clinic | Online booking</span>
+   <h1>Caring for your family, <span>every step</span> of the way</h1>
+   <p class="lead">Experienced doctors, modern diagnostics and a clinic that feels like home. Book your appointment online in 30 seconds.</p>
+   <div class="cta"><a class="btn c" href="#book">Book Appointment</a><a class="btn o" href="tel:+910000000000"><svg class="i"><use href="#phone"/></svg> Call Now</a></div>
+   <div class="facts"><div><b>12+</b><span>Years of practice</span></div><div><b>8</b><span>Care services</span></div><div><b>30 sec</b><span>To book online</span></div></div>
+  </div>
+  <div class="hp">
+   <div class="ph" data-src="img/clinic/hero.jpg"></div>
+   <div class="fl f2"><span class="d"><svg class="i"><use href="#cal"/></svg></span><span><b>Slots open today</b><small>Evening 4 PM to 8 PM</small></span></div>
+   <div class="fl f1"><span class="d"><svg class="i"><use href="#steth"/></svg></span><span><b>Dr. Aarav Sharma</b><small>MBBS, MD (General Medicine)</small></span></div>
+  </div>
+ </div>
+</div>
+
+<section id="services">
+ <div class="wrap">
+  <div class="title"><h2>Complete care under one roof</h2><p>From routine checkups to long-term care</p></div>
+  <div class="grid4">
+   <div class="sv"><div class="ic"><svg class="i"><use href="#steth"/></svg></div><h3>General Checkup</h3><p>Full health examination and consultation.</p></div>
+   <div class="sv"><div class="ic"><svg class="i"><use href="#tooth"/></svg></div><h3>Dental Care</h3><p>Cleaning, fillings and smile care.</p></div>
+   <div class="sv"><div class="ic"><svg class="i"><use href="#heart"/></svg></div><h3>Heart Health</h3><p>ECG, BP monitoring and screening.</p></div>
+   <div class="sv"><div class="ic"><svg class="i"><use href="#flask"/></svg></div><h3>Lab Tests</h3><p>Blood tests with quick digital reports.</p></div>
+   <div class="sv"><div class="ic"><svg class="i"><use href="#baby"/></svg></div><h3>Child Care</h3><p>Vaccinations and growth monitoring.</p></div>
+   <div class="sv"><div class="ic"><svg class="i"><use href="#drop"/></svg></div><h3>Diabetes Care</h3><p>Sugar control plans and diet guidance.</p></div>
+   <div class="sv"><div class="ic"><svg class="i"><use href="#pulse"/></svg></div><h3>Fever and Infection</h3><p>Same-day consultation and treatment.</p></div>
+   <div class="sv"><div class="ic"><svg class="i"><use href="#shield"/></svg></div><h3>Health Packages</h3><p>Preventive checkups for adults and seniors.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="doc" id="doctor">
+ <div class="wrap">
+  <div class="ph" data-src="img/clinic/doctor.jpg"></div>
+  <div>
+   <h2>Meet Dr. Aarav Sharma</h2>
+   <div class="quals">MBBS, MD (General Medicine) | 12+ years of experience</div>
+   <p>Dr. Sharma focuses on clear explanations, careful diagnosis and treatment plans that fit your family's routine.</p>
+   <div class="tags"><span>General Medicine</span><span>Diabetes</span><span>Preventive Care</span><span>Family Health</span></div>
+   <a class="btn" href="#book">Book with Dr. Sharma</a>
+  </div>
+ </div>
+</section>
+
+<section id="how">
+ <div class="wrap">
+  <div class="title"><h2>Booking is simple</h2></div>
+  <div class="steps">
+   <div class="st"><div class="n">1</div><h3>Choose a slot</h3><p>Pick your service, date and time in the form below.</p></div>
+   <div class="st"><div class="n">2</div><h3>Confirm on WhatsApp</h3><p>The clinic receives your request and confirms your slot.</p></div>
+   <div class="st"><div class="n">3</div><h3>Walk in on time</h3><p>Reach at your slot and skip the long waiting.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="why">
+ <div class="wrap">
+  <div class="title"><h2>Why families choose DocCare</h2></div>
+  <div class="grid4">
+   <div class="w"><div class="ic"><svg class="i"><use href="#steth"/></svg></div><h3>Experienced doctors</h3><p>Years of practice and a careful approach.</p></div>
+   <div class="w"><div class="ic"><svg class="i"><use href="#clock"/></svg></div><h3>No long waiting</h3><p>Book a slot online and walk in on time.</p></div>
+   <div class="w"><div class="ic"><svg class="i"><use href="#rupee"/></svg></div><h3>Clear fees</h3><p>Consultation fees shared upfront.</p></div>
+   <div class="w"><div class="ic"><svg class="i"><use href="#shield"/></svg></div><h3>Clean and safe</h3><p>Hygienic clinic with strict safety standards.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="faq">
+ <div class="wrap">
+  <div class="title"><h2>Common questions</h2></div>
+  <div class="faq">
+   <details><summary>How do I book an appointment?</summary><p>Fill the booking form on this page. The clinic confirms your slot on WhatsApp.</p></details>
+   <details><summary>Do I need to carry old reports?</summary><p>Yes, please bring previous prescriptions and test reports if you have them.</p></details>
+   <details><summary>Can I book for a family member?</summary><p>Yes. Enter the patient's name in the form and book for anyone in your family.</p></details>
+   <details><summary>What are the clinic timings?</summary><p>Monday to Saturday, 10 AM to 1 PM and 4 PM to 8 PM. Closed on Sunday.</p></details>
+  </div>
+ </div>
+</section>
+
+<section class="book" id="book">
+ <div class="wrap">
+  <div>
+   <h2>Book your appointment</h2>
+   <p class="lead">Fill the form and we will confirm your slot on WhatsApp.</p>
+   <ul><li><i>&#10003;</i> Takes about 30 seconds</li><li><i>&#10003;</i> Confirmation on WhatsApp</li><li><i>&#10003;</i> Book for yourself or family</li></ul>
+  </div>
+  <form id="bf">
+   <h3 class="f">Appointment details</h3>
+   <div class="row"><input id="n" placeholder="Patient name" required><input id="p" type="tel" placeholder="Phone number" required></div>
+   <div class="row"><input id="d" type="date" required><select id="t"><option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option><option>04:00 PM</option><option>05:00 PM</option><option>06:00 PM</option><option>07:00 PM</option></select></div>
+   <select id="s"><option>General Checkup</option><option>Dental Care</option><option>Heart Health</option><option>Lab Tests</option><option>Child Care</option><option>Diabetes Care</option><option>Fever and Infection</option><option>Health Package</option></select>
+   <textarea id="m" rows="3" placeholder="Describe the problem (optional)"></textarea>
+   <button class="btn c" type="submit">Confirm on WhatsApp</button>
+   <div class="note">For emergencies, call the clinic or visit the nearest hospital.</div>
+  </form>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="wrap">
+  <div class="title"><h2>Visit DocCare</h2></div>
+  <div class="cg">
+   <div class="info">
+    <div><span class="ic"><svg class="i"><use href="#pin"/></svg></span><span><b>DocCare Clinic</b><br>123 Main Road, Your City, 000000</span></div>
+    <div><span class="ic"><svg class="i"><use href="#clock"/></svg></span><span>Mon to Sat: 10 AM to 1 PM, 4 PM to 8 PM<br>Sunday: Closed</span></div>
+    <div><span class="ic"><svg class="i"><use href="#phone"/></svg></span><span>+91 00000 00000</span></div>
+    <a class="btn" href="tel:+910000000000">Call Now</a>
+   </div>
+   <div class="map">Add your Google Map embed here</div>
+  </div>
+ </div>
+</section>
+
+<footer>&copy; 2026 DocCare Clinic. All rights reserved.</footer>
+
+<a class="wa" href="https://wa.me/910000000000" aria-label="WhatsApp"><svg class="i"><use href="#chat"/></svg></a>
+<div class="bar"><a class="a" href="tel:+910000000000">Call Now</a><a class="b" href="#book">Book Online</a></div>
+
+<script>
+var WA_NUMBER="910000000000"; // CHANGE: clinic WhatsApp (country code + number)
+document.querySelectorAll('.ph[data-src]').forEach(function(el){var i=new Image();i.onload=function(){el.style.backgroundImage='url('+el.dataset.src+')';el.classList.add('on')};i.src=el.dataset.src});
+var nav=document.getElementById('nav');document.getElementById('bg').onclick=function(){nav.classList.toggle('open')};
+nav.querySelectorAll('a').forEach(function(a){a.onclick=function(){nav.classList.remove('open')}});
+document.getElementById('d').min=new Date().toISOString().split("T")[0];
+document.getElementById('bf').addEventListener('submit',function(e){e.preventDefault();
+ var q="New Appointment Request%0AName: "+encodeURIComponent(n.value)+"%0APhone: "+encodeURIComponent(p.value)+"%0ADate: "+d.value+"%0ATime: "+encodeURIComponent(t.value)+"%0AService: "+encodeURIComponent(s.value)+"%0AProblem: "+encodeURIComponent(m.value||"N/A");
+ window.open("https://wa.me/"+WA_NUMBER+"?text="+q,"_blank")});
+</script>
+</body>
+</html>
